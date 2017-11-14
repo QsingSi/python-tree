@@ -4,7 +4,7 @@ from math import *
 import numpy as np
 import pickle
 """
-下一步缺失值处理
+封箱和缺失值处理已经完成
 """
 
 
