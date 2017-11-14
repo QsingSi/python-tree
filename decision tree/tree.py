@@ -114,6 +114,9 @@ class decisionTree(object):
         return myTree
 
     def classify(self, inputTree, labels, testVec):
+        '''
+        运用已知的树进行分类
+        '''
         firstLabel = list(inputTree.keys())[0]
         secondDict = inputTree[firstLabel]
         featIndex = labels.index(firstLabel)
