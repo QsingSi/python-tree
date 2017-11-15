@@ -1,5 +1,6 @@
 import numpy as np
 import logging
+from tree import DecisionTree
 from math import log
 from collections import Counter
 '''
@@ -7,10 +8,9 @@ from collections import Counter
 '''
 
 
-class CART(object):
-    def __init__(self, dataset):
-        self.data, self.target = dataset[:, 1:], dataset[:, 0]
-        self.samples, self.numFeat = dataset.shape
+class CART(DecisionTree):
+    def __init__(self):
+        pass
 
     def calGini(self, retData):
         '''
@@ -37,10 +37,10 @@ class CART(object):
         baseGini = self.calGini(dataset[-1])
         minGini = np.inf
         bestFeature = -1
-        tot = dataset.shape[0]
-        for i in range(dataset.shape[1]):
+        tot = len(dataset)
+        for i in range(len(dataset[0])):
             tmpData = [exam[i] for exam in dataset]
-            tmpData = filter(lambda x: np.isnan(x), tmpData)
+           # tmpData = list(filter(lambda x: np.isnan(x), tmpData))
             uniqueData = set(tmpData)
             newGini = 0.0
             GiniGain = 0.0
@@ -75,3 +75,11 @@ class CART(object):
             myTree[bestFeatLabel][val] = self.creatTree(
                 self.splitData(dataset, bestFeat, val), sublabel)
         return myTree
+
+
+if __name__ == '__main__':
+    t = CART()
+    dataset, labels = t.creatData()
+    label_tmp = labels[:]
+    myTree = t.creatTree(dataset, label_tmp)
+    print(myTree)
