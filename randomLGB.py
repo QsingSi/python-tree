@@ -8,10 +8,20 @@ from sklearn.metrics import confusion_matrix
 
 class Config:
     xgb_best_param = {'learning_rate': 0.25, 'max_depth': 5,
-                      'objective': 'binary:logistic', 'eval_metric': 'error', 'num_boost_round': 90, 'n_estimators': 90}
-    lgb_best_param = dict(subsample=0.7, reg_lambda=0.1, reg_alpha=0.05, num_leaves=63, n_estimators=280,
-                          min_child_weight=4, min_child_samples=80, max_bin=200, learning_rate=0.05, colsample_bytree=0.9)
-    rf_best_param = dict(n_estimators=90, max_depth=10)
+                      'objective': 'binary:logistic', 'eval_metric': 'error',
+                      'num_boost_round': 90, 'n_estimators': 90}
+    lgb_best_param = dict(subsample=0.7,
+                          reg_lambda=0.1,
+                          reg_alpha=0.05,
+                          num_leaves=63,
+                          n_estimators=280,
+                          min_child_weight=4,
+                          min_child_samples=80,
+                          max_bin=200,
+                          learning_rate=0.05,
+                          colsample_bytree=0.9)
+    rf_best_param = dict(n_estimators=90,
+                         max_depth=10)
 
 
 class RandomXgb(Config):
