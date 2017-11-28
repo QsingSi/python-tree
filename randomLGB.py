@@ -21,6 +21,8 @@ class Config:
                           learning_rate=0.05,
                           colsample_bytree=0.9)
     rf_best_param = dict(n_estimators=90,
+                         n_jobs=-1,
+                         verbose=1,
                          max_depth=10)
 
 
