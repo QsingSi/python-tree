@@ -23,7 +23,7 @@ class Model:
 
     def calc_max_ks(self, y_true, y_pred, sample_weight=None):
         if len(y_pred[0]) == 2:
-            y_pred = self._convert_data()
+            y_pred = self._convert_data(y_pred)
         fpr, tpr, thre = roc_curve(y_true, y_pred, sample_weight=sample_weight)
         ks = tpr - fpr
         return max(ks)
